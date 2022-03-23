@@ -10,15 +10,7 @@ function withRouter(Child) {
   };
 }
 
-const MenuItem = ({
-  title,
-  imageUrl,
-  size,
-  navigate,
-  linkUrl,
-  location,
-  history,
-}) => {
+const MenuItem = ({ title, imageUrl, size, navigate, linkUrl, location }) => {
   return (
     <div
       className={`menu-item ${size}`}

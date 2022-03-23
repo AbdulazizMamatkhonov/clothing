@@ -1,6 +1,15 @@
 import React from "react";
 import "./directory.styles.scss";
 import MenuItem from "../menu-item/menu-item.component";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
+function withRouter(Child) {
+  return (props) => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    return <Child {...props} navigate={navigate} location={location} />;
+  };
+}
 export class Directory extends React.Component {
   constructor() {
     super();
