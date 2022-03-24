@@ -1,3 +1,7 @@
-body {
+.main-container {
   padding: 20px 80px;
+}
+a {
+  text-decoration: none;
+  color: black;
 }
