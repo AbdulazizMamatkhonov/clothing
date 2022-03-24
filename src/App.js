@@ -18,7 +18,6 @@ function App() {
         <Route path="/shop" element={<ShopPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
-      <Link to="/">Home</Link>
     </div>
   );
 }
