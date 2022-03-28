@@ -1,0 +1,9 @@
+.userpage {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  .title {
+    margin-bottom: 30px;
+  }
+}
