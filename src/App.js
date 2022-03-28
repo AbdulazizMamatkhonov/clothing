@@ -5,7 +5,7 @@ import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
 import SignInAndSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import Header from "./components/header/header.component";
-import { auth } from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import Userpage from "./pages/userpage/userpage.component";
 const ErrorPage = () => (
   <div>
@@ -16,13 +16,14 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentUser: null,
+      currentUser: {},
     };
   }
   unsubscribeFromAuth = null;
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
       this.setState({ currentUser: user });
+      createUserProfileDocument(user);
       console.log(user);
     });
   }

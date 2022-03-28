@@ -22,6 +22,7 @@ const Header = ({ currentUser }) => {
               className="option"
               onClick={() => {
                 auth.signOut();
+                return <Link to="/">Return Home</Link>;
               }}
             >
               SIGN OUT
