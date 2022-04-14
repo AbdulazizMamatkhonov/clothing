@@ -16,15 +16,25 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentUser: {},
+      currentUser: null,
     };
   }
   unsubscribeFromAuth = null;
   componentDidMount() {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
-      this.setState({ currentUser: user });
-      createUserProfileDocument(user);
-      console.log(user);
+      if (user) {
+        const useRef = await createUserProfileDocument(user);
+        useRef.onSnapshot((snapshot) => {
+          this.setState({
+            currentUser: {
+              id: snapshot.id,
+              ...snapshot.data(),
+            },
+          });
+        });
+      } else {
+        this.setState({ currentUser: null });
+      }
     });
   }
   componentWillUnmount() {
