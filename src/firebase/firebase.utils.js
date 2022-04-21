@@ -3,6 +3,8 @@ import "firebase/compat/firestore";
 import "firebase/compat/auth";
 import { initializeApp } from "@firebase/app";
 
+// config for firebase project
+
 const config = {
   apiKey: "AIzaSyCgYvEQrQIiLo8j4ZjYLpqFpT2D9QZciDs",
   authDomain: "crown-db-89bb2.firebaseapp.com",
@@ -42,6 +44,8 @@ firebase.initializeApp(config);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
+
+// function for sign in with google
 
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
