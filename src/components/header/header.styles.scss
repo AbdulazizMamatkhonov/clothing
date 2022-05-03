@@ -28,5 +28,10 @@
   }
   .user-container {
     display: flex;
+    align-items: center;
+  }
+  .userLink img {
+    border-radius: 100px;
+    max-width: 50px;
   }
 }
